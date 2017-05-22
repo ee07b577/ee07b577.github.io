@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="前端性能优化的一大手段就是使用缓存，但是缓存分很多种，比如常见的HTTP 304状态码就是其中一个。那么对于前端开发人员来说，需要了解哪些缓存相关的知识呢？"/>
+
+
+
+
+  <meta name="keywords" content="前端, 缓存, 性能优化," />
+
+
+
+
+  <link rel="alternate" href="/default" title="前端小站">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.4.x" />
+
+
+
+<link rel="canonical" href="https://ee07b577.github.io/2017/05/12/caching4fe/"/>
+
+
+<meta name="description" content="前端性能优化的一大手段就是使用缓存，但是缓存分很多种，比如常见的HTTP 304状态码就是其中一个。那么对于前端开发人员来说，需要了解哪些缓存相关的知识呢？">
+<meta name="keywords" content="前端, 缓存, 性能优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端可以用到哪些缓存以提高性能">
+<meta property="og:url" content="https://ee07b577.github.io/2017/05/12/caching4fe/index.html">
+<meta property="og:site_name" content="前端小站">
+<meta property="og:description" content="前端性能优化的一大手段就是使用缓存，但是缓存分很多种，比如常见的HTTP 304状态码就是其中一个。那么对于前端开发人员来说，需要了解哪些缓存相关的知识呢？">
+<meta property="og:updated_time" content="2017-05-19T09:56:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端可以用到哪些缓存以提高性能">
+<meta name="twitter:description" content="前端性能优化的一大手段就是使用缓存，但是缓存分很多种，比如常见的HTTP 304状态码就是其中一个。那么对于前端开发人员来说，需要了解哪些缓存相关的知识呢？">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.4.x" />
+
+
+
+
+
+
+
+<script>
+  var CONFIG = {
+    search: false,
+    searchPath: "/search.xml",
+    fancybox: false,
+    toc: true,
+  }
+</script>
+
+
+
+
+  
+
+
+
+    <title> 前端可以用到哪些缓存以提高性能 · 前端小站 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">前端小站</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">前端小站</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          前端可以用到哪些缓存以提高性能
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          May 12, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#资源缓存"><span class="toc-text">资源缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#http-304-状态码"><span class="toc-text">http 304 状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#manifest"><span class="toc-text">manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">#</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据缓存"><span class="toc-text">数据缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#localstorage"><span class="toc-text">localstorage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM缓存"><span class="toc-text">DOM缓存</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="资源缓存"><a href="#资源缓存" class="headerlink" title="资源缓存"></a>资源缓存</h2><h3 id="http-304-状态码"><a href="#http-304-状态码" class="headerlink" title="http 304 状态码"></a>http 304 状态码</h3><h3 id="manifest"><a href="#manifest" class="headerlink" title="manifest"></a>manifest</h3><h3 id=""><a href="#" class="headerlink" title="#"></a>#</h3><h2 id="数据缓存"><a href="#数据缓存" class="headerlink" title="数据缓存"></a>数据缓存</h2><h3 id="localstorage"><a href="#localstorage" class="headerlink" title="localstorage"></a>localstorage</h3><h2 id="DOM缓存"><a href="#DOM缓存" class="headerlink" title="DOM缓存"></a>DOM缓存</h2>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <span>Fiona</span>
+    </p>
+    <p class="copyright-item">
+      <span>Origin: </span>
+      <a href="https://ee07b577.github.io">https://ee07b577.github.io</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://ee07b577.github.io/2017/05/12/caching4fe/">https://ee07b577.github.io/2017/05/12/caching4fe/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">Reward</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wx.jpg" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/zfb.jpg" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/前端-缓存-性能优化/">前端, 缓存, 性能优化</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/05/19/interview1/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">每天一道前端面试题-1</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/05/12/hexonote/">
+        <span class="next-text nav-default">hexo使用备注</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:liangffbupt@126.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Fiona</span>
+  </span>
+</div>
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+  
+  
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.4.x"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.4.x"></script>
+
+    
+  </body>
+</html>
