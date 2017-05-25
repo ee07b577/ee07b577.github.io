@@ -38,7 +38,7 @@
 <meta property="og:url" content="https://ee07b577.github.io/2017/05/12/hexonote/index.html">
 <meta property="og:site_name" content="前端小站">
 <meta property="og:description" content="123456$ cd ee07b577.github.io$ hexo server [-port 3000 --static --log] // 启动本地服务$ hexo generate --watch$ hexo new test   //在source/_posts/ 中添加test.md文件                  //网站配置相关修改_config.yml$ hexo dep">
-<meta property="og:updated_time" content="2017-05-19T07:59:09.000Z">
+<meta property="og:updated_time" content="2017-05-22T01:19:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用备注">
 <meta name="twitter:description" content="123456$ cd ee07b577.github.io$ hexo server [-port 3000 --static --log] // 启动本地服务$ hexo generate --watch$ hexo new test   //在source/_posts/ 中添加test.md文件                  //网站配置相关修改_config.yml$ hexo dep">
@@ -119,7 +119,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -128,7 +128,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -167,6 +167,10 @@
       
         <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ee07b577.github.io</div><div class="line">$ hexo server [-port 3000 --static --log] // 启动本地服务</div><div class="line">$ hexo generate --watch</div><div class="line">$ hexo new <span class="built_in">test</span>   //在<span class="built_in">source</span>/_posts/ 中添加test.md文件</div><div class="line">                  //网站配置相关修改_config.yml</div><div class="line">$ hexo deploy  //刷新localhost:4000查看无误后部署</div></pre></td></tr></table></figure>
 <p>其他<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo render &lt;file1&gt; [file2] ...</div><div class="line">$ hexo clean</div></pre></td></tr></table></figure></p>
+<p>每次部署的步骤，可按以下三步来进行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line"></div><div class="line">hexo generate</div><div class="line"></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p>一些常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">hexo new<span class="string">"postName"</span> <span class="comment">#新建文章</span></div><div class="line"></div><div class="line">hexo new page<span class="string">"pageName"</span> <span class="comment">#新建页面</span></div><div class="line"></div><div class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></div><div class="line"></div><div class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></div><div class="line"></div><div class="line">hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span></div><div class="line"></div><div class="line">hexo <span class="built_in">help</span> <span class="comment"># 查看帮助</span></div><div class="line"></div><div class="line">hexo version <span class="comment">#查看Hexo的版本</span></div></pre></td></tr></table></figure>
 <p>更多信息: <a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
 
       
@@ -178,15 +182,15 @@
 
   <div class="post-copyright">
     <p class="copyright-item">
-      <span>Author: </span>
+      <span>作者: </span>
       <span>Fiona</span>
     </p>
     <p class="copyright-item">
-      <span>Origin: </span>
+      <span>来源: </span>
       <a href="https://ee07b577.github.io">https://ee07b577.github.io</a>
     </p>
     <p class="copyright-item">
-      <span>Link: </span>
+      <span>链接: </span>
       <a href="https://ee07b577.github.io/2017/05/12/hexonote/">https://ee07b577.github.io/2017/05/12/hexonote/</a>
     </p>
 
@@ -202,7 +206,7 @@
       
   <div class="post-reward">
     <input type="checkbox" name="reward" id="reward" hidden />
-    <label class="reward-button" for="reward">Reward</label>
+    <label class="reward-button" for="reward">赞赏支持</label>
     <div class="qr-code">
       
       
@@ -230,7 +234,7 @@
       <a class="prev" href="/2017/05/12/caching4fe/">
         <i class="iconfont icon-left"></i>
         <span class="prev-text nav-default">前端可以用到哪些缓存以提高性能</span>
-        <span class="prev-text nav-mobile">Prev</span>
+        <span class="prev-text nav-mobile">上一篇</span>
       </a>
     
     
@@ -290,11 +294,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 

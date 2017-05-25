@@ -118,7 +118,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -127,7 +127,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -150,7 +150,49 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2017/05/19/interview1/">每天一道前端面试题-1</a>
+          <a class="post-link" href="/2017/05/22/js-array/">js数组常见面试题</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          May 22, 2017
+        </span>
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>本博客汇集了几个javascript数组的常见面试题，很多都是数组的自带函数，在数据处理中有很多使用场景，因此还需要熟练掌握。当然，考察最多的还是数组的排序和查找，本博客暂时未做收录。</p>
+          <div class="read-more">
+            <a href="/2017/05/22/js-array/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2017/05/19/js-closure/">js闭包问题</a>
         
       </h1>
 
@@ -174,7 +216,7 @@
         
           <p>第一题是题目原型，后面都是拓展变形。考察点可以参考本博客底部的关键词，小伙伴们自行体会~</p>
           <div class="read-more">
-            <a href="/2017/05/19/interview1/" class="read-more-link">Read more..</a>
+            <a href="/2017/05/19/js-closure/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -216,7 +258,7 @@
         
           <p>前端性能优化的一大手段就是使用缓存，但是缓存分很多种，比如常见的HTTP 304状态码就是其中一个。那么对于前端开发人员来说，需要了解哪些缓存相关的知识呢？</p>
           <div class="read-more">
-            <a href="/2017/05/12/caching4fe/" class="read-more-link">Read more..</a>
+            <a href="/2017/05/12/caching4fe/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -256,6 +298,10 @@
         
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ee07b577.github.io</div><div class="line">$ hexo server [-port 3000 --static --log] // 启动本地服务</div><div class="line">$ hexo generate --watch</div><div class="line">$ hexo new <span class="built_in">test</span>   //在<span class="built_in">source</span>/_posts/ 中添加test.md文件</div><div class="line">                  //网站配置相关修改_config.yml</div><div class="line">$ hexo deploy  //刷新localhost:4000查看无误后部署</div></pre></td></tr></table></figure>
 <p>其他<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo render &lt;file1&gt; [file2] ...</div><div class="line">$ hexo clean</div></pre></td></tr></table></figure></p>
+<p>每次部署的步骤，可按以下三步来进行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line"></div><div class="line">hexo generate</div><div class="line"></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<p>一些常用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">hexo new<span class="string">"postName"</span> <span class="comment">#新建文章</span></div><div class="line"></div><div class="line">hexo new page<span class="string">"pageName"</span> <span class="comment">#新建页面</span></div><div class="line"></div><div class="line">hexo generate <span class="comment">#生成静态页面至public目录</span></div><div class="line"></div><div class="line">hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></div><div class="line"></div><div class="line">hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span></div><div class="line"></div><div class="line">hexo <span class="built_in">help</span> <span class="comment"># 查看帮助</span></div><div class="line"></div><div class="line">hexo version <span class="comment">#查看Hexo的版本</span></div></pre></td></tr></table></figure>
 <p>更多信息: <a href="https://hexo.io/" target="_blank" rel="external">hexo官网</a></p>
 
         
@@ -322,11 +368,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
